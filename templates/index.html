@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="mx-auto text-center">
-    <h1 class="mx-auto my-0 text-uppercase">Riddle Me</h1>
-    <h2 class="text-white-50 mx-auto mt-5">Rules</h2>
-    <ul class="text-white mb-5 list-unstyled">
-        <li>Create a username which will be displayed on the leaderboard.</li>
-        <li>Pick your challange between picture/text based riddles or a mixure of both.</li>
-        <li>They're 10 riddles per session.</li>
-        <li>Try and complete all the riddles with as little incorrect guesses.</li>
-        <li>Start with 20 points each time you guess incorrectly a point is deducted.</li>
-        <li>If you reach 0 points game over.</li>
-    </ul>
-    <form method="POST">
-        <label class="text-white-50" for="username">Username:</label>
-        <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="username" name="username" placeholder="Enter Username...">
-        <button type="submit" class="btn btn-primary js-scroll-trigger mt-3">Get Started</a>
-    </form>
+<div class="container d-flex h-100 align-items-center">
+    <div class="mx-auto text-center">
+        <h1 class="mx-auto my-0 text-uppercase">Riddle Me</h1>
+        <h2 class="text-white-50 mx-auto mt-5">Rules</h2>
+        <ul class="text-white mb-5 list-unstyled">
+            <li>Create a username which will be displayed on the leaderboard.</li>
+            <li>Pick your challange between picture/text based riddles or a mixure of both.</li>
+            <li>They're 10 riddles per session.</li>
+            <li>Try and complete all the riddles with as little incorrect guesses.</li>
+            <li>Start with 20 points each time you guess incorrectly a point is deducted.</li>
+            <li>If you reach 0 points game over.</li>
+        </ul>
+        <form method="POST">
+            <label class="text-white-50" for="username">Username:</label>
+            <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="username" name="username" placeholder="Enter Username...">
+            <button type="submit" class="btn btn-primary js-scroll-trigger mt-3">Get Started</a>
+        </form>
+    </div>
 </div>
 {% endblock %}
