@@ -1,21 +1,36 @@
-{% extends 'base.html' %}
-{% block content %}
-<div class="container d-flex h-100 align-items-center">
-    <div class="mx-auto text-center">
-        <h1 class="mx-auto my-0 text-uppercase">Riddle Me</h1>
-        <h2 class="text-white-50 mx-auto mt-5">Rules</h2>
-        <ul class="text-white mb-5 list-unstyled">
-            <li>Create a username which will be displayed</li>
-            <li>They're 10 riddles per session.</li>
-            <li>Try and complete all the riddles with as little incorrect guesses.</li>
-            <li>Start with 20 points each time you guess incorrectly a point is deducted.</li>
-            <li>If you reach 0 points game over.</li>
-        </ul>
-        <form method="POST">
-            <label class="text-white-50" for="username">Username:</label>
-            <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="username" name="username" placeholder="Enter Username...">
-            <button type="submit" class="btn btn-primary js-scroll-trigger mt-3">Get Started</button>
-        </form>
+{% extends 'base.html' %} {% block content %}
+
+<div class="container h-100 align-items-center">
+
+    <h1 class="mb-5 text-uppercase">Riddle Me</h1>
+    
+    <div class="row mt-5">
+        <div class="col-6 text-center">
+            <h2 class="text-white-50 mt-5">Rules</h2>
+            <ul class="text-white mb-5 list-unstyled">
+                <li>Create a username which will be displayed.</li>
+                <li>They're 10 riddles per session.</li>
+                <li>Try and complete all the riddles with as little incorrect guesses.</li>
+                <li>Start with 20 points each time you guess incorrectly a point is deducted.</li>
+                <li>If you reach 0 points game over.</li>
+            </ul>
+        </div>
+        
+        <div class="col-6 text-center">
+            <h2 class="text-white-50 mt-5">Leaderboard</h2>
+            {% for user in leaderboard %}
+            <div class="leaderboard text-center">
+                <p class="text-white mr-5">{{ user['name'] }} : {{ user['score'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-12 text-center">
+            <form method="POST">
+                <label class="text-white-50" for="username">Username:</label>
+                <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="username" name="username" placeholder="Enter Username...">
+                <button type="submit" class="btn btn-primary js-scroll-trigger mt-3">Get Started</button>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

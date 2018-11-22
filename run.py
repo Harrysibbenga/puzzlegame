@@ -18,7 +18,7 @@ def index():
     if request.method == 'POST':
         session['username'] = request.form['username']
         return redirect(session['username'])
-    return render_template('index.html')
+    return render_template('index.html', leaderboard=leaderboard)
 
 
 @app.route('/<username>', methods=["GET", "POST"])
