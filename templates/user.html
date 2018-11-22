@@ -1,28 +1,30 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
+
 <section id="welcome-section">
     <div class="conatiner text-center">
         <h1 class="text-uppercase mb-5">Riddle ME Welcome {{ username.title() }}</h1>
-        <h2 class="text-white mx-auto my-5">Pick to start</h2>
     </div>
 </section>
 
-<section id="challange-selection">
-    <div class="container d-flex h-100 text-center">
+<section id="game-section">
+    <div class="container text-center">
         <div class="row">
             <div class="col-12">
-                <a href="" class="btn btn-primary js-scroll-trigger mt-3" >Picture Challange</a>
-                <a href="" class="btn btn-primary js-scroll-trigger mt-3" >Text Challange</a>
-                <a href="" class="btn btn-primary js-scroll-trigger mt-3" >Mixed Challange</a>
+                <h2 class="text-white mx-auto">{{ riddle_data[riddle_id]["question"] }}</h2>
             </div>
             <div class="col-12">
-                <a href="" class="btn btn-primary js-scroll-trigger mt-3" >Picture Leaderboard</a>
-                <a href="" class="btn btn-primary js-scroll-trigger mt-3" >Text Leaderboard</a>
-                <a href="" class="btn btn-primary js-scroll-trigger mt-3" >Mixed Leaderboard</a>
-                <a href="{{ url_for('index') }}" class="btn btn-primary js-scroll-trigger mt-3" >Title Screen</a>
+                <form method="POST">
+                    <label class="text-white-50" for="answer">Answer :</label>
+                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="answer" name="answer" placeholder="Enter Answer...">
+                    <input type="hidden" name="riddle_id" id="riddle_id" value={{riddle_id}} >
+                    <p class="text-white">Score : {{ user_score }}</p>
+                    <button type="submit" class="btn btn-primary js-scroll-trigger mt-3">Submit</button>
+                    <a href="{{ url_for('index') }}" class="btn btn-primary js-scroll-trigger mt-3">Quit</a>
+                </form>
             </div>
         </div>
     </div>
 </section>
-
 
 {% endblock %}
