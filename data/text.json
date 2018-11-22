@@ -1,0 +1,54 @@
+[
+    {
+        "id": 0,
+        "question": "What kind of key do you use on Thanksgiving?",
+        "answer": "turkey"
+    },
+    {
+        "id": 1,
+        "question": "A cloud was my mother, the wind is my father, my son is the cool stream, and my daughter is the fruit of the land. A rainbow is my bed, the earth my final resting place, and I'm the torment of man. Who Am I?",
+        "answer": "rain"
+    },
+    {
+        "id": 2,
+        "question": "When my father was 31 I was 8. Now he is twice as old as me. How old am I?",
+        "answer": "23"
+    },
+    {
+        "id": 3,
+        "question": "What do you call a naughty turkey?",
+        "answer": "dinner"
+    },
+    {
+        "id": 4,
+        "question": "What type of paper can you neither read nor write on?",
+        "answer": "sandpaper"
+    },
+    {
+        "id": 5,
+        "question": "I can't see yet I know your there. I'm not a cow but I'm leather. I'm a rare find but follow paths. I can fly but I'm not a bird. What am I?",
+        "answer": "bat"
+    },
+    {
+        "id": 6,
+        "question": "What 8 letter word can have a letter taken away and it still makes a word.  Take another letter away and it still makes a word. Keep on doing that until you have one letter left. What is the word?",
+        "answer": "starting"
+    },
+    {
+        "id": 7,
+        "question": "The more you take, the more you leave behind. What am I?",
+        "answer": "footsteps"
+    },
+    {
+        "id": 8,
+        "question": "What has a head, a tail, is brown, and has no legs?",
+        "answer": "penny"
+    },
+    {
+        "id": 9,
+        "question": "Can you name three consecutive days without using the words Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday?",
+        "answer": "yesterday, today, tomorrow"
+    }
+    
+    
+]

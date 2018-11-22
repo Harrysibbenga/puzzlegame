@@ -43,7 +43,7 @@ def user(username):
         # Get riddle_id from the value of the hidden input
         riddle_id = int(request.form['riddle_id'])
         # Get user's answer from the input box
-        user_answer = request.form['answer'].title()
+        user_answer = request.form['answer'].lower()
         # Compare the user's answer to the correct answer of the riddle
         if data[riddle_id]['answer'] == user_answer:
             # Correct answer
