@@ -47,8 +47,6 @@
     {
         "id": 9,
         "question": "Can you name three consecutive days without using the words Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday?",
-        "answer": "yesterday, today, tomorrow"
+        "answer": "yesterday,today,tomorrow"
     }
-    
-    
 ]
