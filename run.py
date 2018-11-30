@@ -7,9 +7,15 @@ app.secret_key = "some_secret"
 
 leaderboard = []
 
+def read_json_file(filename):
+    ''' Open a json filename and return the data '''
+    with open(filename, 'r') as file:
+        data = json.load(file)
+    return data
+
 def write_to_file(filename, data):
     ''' Writelines to a specific filename '''
-    with open(filename, 'a') as file:
+    with open(filename, 'r') as file:
         file.writelines(data)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -23,11 +29,9 @@ def index():
 
 @app.route('/<username>', methods=["GET", "POST"])
 def user(username):
-    ''' User directed to the challange page'''
-    data = []
-    with open('data/text.json', 'r') as json_file:
-        data = json.load(json_file)
-        
+    ''' User directed to the challange page '''
+    
+    riddle_data = read_json_file("data/text.json")
     riddle_id = 0
     
     # Used to create a session for each user so thier score can be updated and resused.
@@ -43,9 +47,9 @@ def user(username):
         # Get riddle_id from the value of the hidden input
         riddle_id = int(request.form['riddle_id'])
         # Get user's answer from the input box
-        user_answer = request.form['answer'].lower()
+        user_answer = request.form['answer'].lower().strip().replace(" ", "")
         # Compare the user's answer to the correct answer of the riddle
-        if data[riddle_id]['answer'] == user_answer:
+        if riddle_data[riddle_id]['answer'] == user_answer:
             # Correct answer
             # Go to next riddle
             riddle_id += 1
@@ -62,6 +66,7 @@ def user(username):
         session.pop('user_data', None)
         return render_template("game_over.html", username=username, leaderboard=leaderboard)
     
-    return render_template('user.html', username=username, user_score=user['score'], riddle_data=data, riddle_id=riddle_id)
-    
+    return render_template('user.html', username=username, user_score=user['score'], riddle_data=riddle_data, riddle_id=riddle_id)
+
+
 app.run(os.getenv('IP'), port=int(os.getenv('PORT')), debug=True)
