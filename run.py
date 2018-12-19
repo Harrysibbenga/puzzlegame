@@ -15,24 +15,27 @@ def read_json_file(filename):
 
 def write_to_file(filename, data):
     ''' Writelines to a specific filename '''
-    with open(filename, 'r') as file:
-        file.writelines(data)
+    with open(filename, 'a') as file:
+        file.writelines(data + '\n')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     ''' Home page requesting username with rules displayed to the user '''
+    # Session removal added here so we can remove all the username data from the previous session and update the rest with the new username data 
+    session.pop('user_data', None)
+    
     if request.method == 'POST':
         session['username'] = request.form['username']
         return redirect(session['username'])
     return render_template('index.html', leaderboard=leaderboard)
 
-
-@app.route('/<username>', methods=["GET", "POST"])
+@app.route('/<username>', methods = ['GET', 'POST'])
 def user(username):
     ''' User directed to the challange page '''
     
     riddle_data = read_json_file("data/text.json")
     riddle_id = 0
+    username = session['username']
     
     # Used to create a session for each user so thier score can be updated and resused.
     user = session.get('user_data', {})
@@ -68,5 +71,5 @@ def user(username):
     
     return render_template('user.html', username=username, user_score=user['score'], riddle_data=riddle_data, riddle_id=riddle_id)
 
-
-app.run(os.getenv('IP'), port=int(os.getenv('PORT')), debug=True)
+if __name__ == '__main__':
+    app.run(os.getenv('IP'), port=int(os.getenv('PORT')), debug=True)
