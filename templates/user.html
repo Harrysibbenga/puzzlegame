@@ -16,7 +16,7 @@
             <div class="col-12">
                 <form method="POST">
                     <label class="text-white-50" for="answer">Answer :</label>
-                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="answer" name="answer" placeholder="Enter Answer...">
+                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="answer" name="answer" placeholder="Enter Answer..." required>
                     <input type="hidden" name="riddle_id" id="riddle_id" value={{riddle_id}} >
                     <p class="text-white">Score : {{ user_score }}</p>
                     <button type="submit" class="btn btn-primary js-scroll-trigger mt-3">Submit</button>
