@@ -1,5 +1,6 @@
 import os
 import json
+import quiz
 from flask import Flask, redirect, render_template, request, url_for, session
 
 app = Flask(__name__)
@@ -50,9 +51,10 @@ def user(username):
         # Get riddle_id from the value of the hidden input
         riddle_id = int(request.form['riddle_id'])
         # Get user's answer from the input box
-        user_answer = request.form['answer'].lower().strip().replace(" ", "")
+        user_answer = request.form['answer']
+        question_answer = riddle_data[riddle_id]['answer']
         # Compare the user's answer to the correct answer of the riddle
-        if riddle_data[riddle_id]['answer'] == user_answer:
+        if quiz.check_answer(question_answer, user_answer):
             # Correct answer
             # Go to next riddle
             riddle_id += 1

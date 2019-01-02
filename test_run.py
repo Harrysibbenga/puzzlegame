@@ -1,4 +1,5 @@
 import unittest
+import quiz
 import run
 
 class test_run(unittest.TestCase):
@@ -11,20 +12,21 @@ class test_run(unittest.TestCase):
         riddle_data = run.read_json_file('data/text.json')
         self.assertGreater(len(riddle_data), 0)
         
-    def test_are_the_answers_equal_to_user_input(self):
+    def test_check_answer(self):
         ''' 
-        test that the user input is equal to the answers in the riddle data.
-        '''
-        def check_answer(riddle_data, user_answer):
-            user_input = user_answer.lower().strip().replace(" ", "")
-            assert riddle_data[1] == user_input, "Expected {0}, got {1}".format(riddle_data[1], user_input)
+        test that the user input is equal to the answers in the riddle data by importing the quiz file and doing the following tests 
+        to check if they pass.
         
+        check_answer(riddle_answer, "turkey")
+        check_answer(riddle_answer, "Turkey")
+        check_answer(riddle_answer, "TURKEY")
+        check_answer(riddle_answer, "   Turkey   ")
+        check_answer(riddle_answer, "yesterday, today, tomorrow")
+        check_answer(riddle_answer, "yesterday,   today,    tomorrow")
+        '''
         riddle = {0: "What kind of key do you use on Thanksgiving?", 1: "turkey"}
         riddle2 = {0: "Can you name three consecutive days without using the words Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday?", 1:"yesterday,today,tomorrow"}
         
-        check_answer(riddle, "turkey")
-        check_answer(riddle, "Turkey")
-        check_answer(riddle, "TURKEY")
-        check_answer(riddle, "   Turkey   ")
-        check_answer(riddle2, "yesterday, today, tomorrow")
-        check_answer(riddle2, "yesterday,   today,    tomorrow")
+        result = quiz.check_answer(riddle2[1], "yesterday,   today,    tomorrow")
+        assert result
+        
