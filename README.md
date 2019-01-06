@@ -60,9 +60,13 @@ Once that was done it was simple to publish the website on the settings in the r
 Published at : https://harrysibbenga.github.io/riddlegame/
 
 The webpage was also published on Heroku through Cloud 9 workspace using the following command for an exisiting git repository.
-
+    
     * heroku git:remote -a riddle-me-guessing-game
 
+Before it was published I needed to create a Procfile commit and push it also changed the Config Vars in heroku to the following.
+    * IP = 0.0.0.0
+    * PORT = 5000
+    
 ## Credits
 
 * Uploaded bootstrap theme from [Grayscale](https://blackrockdigital.github.io/startbootstrap-grayscale/)
