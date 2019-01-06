@@ -34,7 +34,7 @@ used and displayed on the leaderboard so the work around this was to end the ses
 
 * Another test was to make sure that when the user has an empty input box and presses enter no action is taken by adding a required attribute on each input element.
 
-### Automated
+### Automated Testing
 
 By importing unittest into the test_run.py file I managed to create two automated tests linked to the run.py file and the quiz.py file.
 
@@ -46,19 +46,22 @@ made it easier to edit the user input making sure it matches the answer regardle
 
 ## Deployment
 
-To deploy the web site from Cloud 9 workspace to Github pages I used the following commands in sequence.
+To deploy the website from Cloud 9 workspace to Github pages I used the following commands in sequence.
 
-* git init - which creates a new Git repository.
-* git status - to see which files have been updated on Cloud 9.
-* git add - to add the updated files to the staging area.
-* git commit -m "actions taken" - to commit the files to the local repository.
-* git remote add origin https://github.com/Harrysibbenga/riddlegame.git - specifies which remote repository commants will be used in.
-* git push -u origin master - to push the commits made on local branch to the Github remote repository.
+    * git init - which creates a new Git repository.
+    * git status - to see which files have been updated on Cloud 9.
+    * git add - to add the updated files to the staging area.
+    * git commit -m "actions taken" - to commit the files to the local repository.
+    * git remote add origin https://github.com/Harrysibbenga/riddlegame.git - specifies which remote repository commants will be used in.
+    * git push -u origin master - to push the commits made on local branch to the Github remote repository.
+    
 Once that was done it was simple to publish the website on the settings in the repository, by selecting the master branch as the source for Github Pages.
 
 Published at : https://harrysibbenga.github.io/riddlegame/
 
-The webpage was also published on Heroku through Cloud 9 workspace using the following commands.
+The webpage was also published on Heroku through Cloud 9 workspace using the following command for an exisiting git repository.
+
+    * heroku git:remote -a riddle-me-guessing-game
 
 ## Credits
 
