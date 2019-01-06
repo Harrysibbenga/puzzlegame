@@ -73,5 +73,4 @@ def user(username):
     
     return render_template('user.html', username=username, user_score=user['score'], riddle_data=riddle_data, riddle_id=riddle_id)
 
-if __name__ == '__main__':
-    app.run(os.getenv('IP'), port=int(os.getenv('PORT')), debug=True)
+app.run(os.getenv('IP'), port=int(os.getenv('PORT')), debug=True)
