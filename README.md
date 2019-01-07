@@ -1,7 +1,7 @@
 # Riddle Me Guessing Game
 
 The purpose of this game it to give the user a set of riddles for them to guess the correct answer which then directs them on to the next riddle.
-If the user guesses wrong then their score is reduced by one. The game nds when the user reaches 0 poins or the user finishes the game. The aim for the user is to reach the end of the game 
+If the user guesses wrong then their score is reduced by one. The game ends when the user reaches 0 points or the user finishes the game. The aim for the user is to reach the end of the game 
 with the most points. 
 
 ## UX
@@ -10,9 +10,11 @@ This web application is intended for any user that would like a challange to ans
 The way this is archeved in a simplistic way is, as soon as the webpage is loaded an input box is displayed central with rules on how to play the game displayed in a lighter font compared to the 
 background next to a leaderboard that displays session scores once completed.
 
-* A user wanting to play the game for the firts time will siply be able to load the app read the rules and input user name and start the game.
+* A user wanting to play the game for the first time will simply be able to load the app read the rules and input user name and start the game. Once the game has started the user will be redirected to the first question.
 
-* A user wanting to replay the game once completed they are prompted with 2 options to play again or quit and can choose either and view thier score aswell.
+* A user wanting to replay the game once completed will be prompted with 2 options to play again or quit and can choose either whilst being able to view thier score.
+    * If a user chooses to replay the game then they will be redirected to the first question.
+    * If a user chooses the quit option then they will be redirected to the home page.
 
 ## Technologies Used
 
@@ -23,6 +25,26 @@ background next to a leaderboard that displays session scores once completed.
     * Used to give the theame of the webpage.
 
 ## Testing
+
+* Index page
+    1. Checked to see if the username field submits without an input and the form wont submit without an input.
+    2. Used different usernames in the input feild works as expected directed to next page.
+    3. Tested different screen sizes and the h1 tag is responsive and everything works as it should.
+    4. Leaderboad shows session players scores once they have completed the game.
+
+* User page
+    1. First question loads when user enters username
+    2. Input value needed when entering an answer form wont submit without an input.
+    3. When the correct answer is entered the next question is displayed
+    4. When a wrong answer is entered score reduces by 1 and the user can retry.
+    5. If score goes to 0 game over, leaderboard updated.
+    6. Quit button works and redirects you to the index page if pressed no update to the leaderboard.
+    7. Checked different screen sizes and the page works as it should with the h1 being responsive.
+
+* Game over page
+    1. Play again button redirects to the first question.
+    2. Quit button redirects user to the home page.
+    3. Leaderboad is updated once game is over.
 
 ### Manual Testing
 
@@ -71,6 +93,7 @@ Before it was published I needed to create a Procfile using the following comman
 spacing as it is case sensitive and wouldnt publish the app. 
 
 To ensure the application worked I needed to commit and push the Procfile also change the Config Vars in heroku to the following.
+    
     * IP = 0.0.0.0.
     * PORT = 5000.
     
