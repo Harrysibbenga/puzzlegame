@@ -59,13 +59,21 @@ Once that was done it was simple to publish the website on the settings in the r
 
 Published at : https://harrysibbenga.github.io/riddlegame/
 
-The webpage was also published on Heroku through Cloud 9 workspace using the following command for an exisiting git repository.
-    
-    * heroku git:remote -a riddle-me-guessing-game
+However because its a python application this cannot be opened through git hub pages hence why i needed to use heroku to deploy the application.
 
-Before it was published I needed to create a Procfile commit and push it also changed the Config Vars in heroku to the following.
+The webpage was published on Heroku through Cloud 9 workspace using the following commands.
+    * heroku login - to login to my heroku
+    * heroku git:remote -a guessing-game-app - to initialise the link to heroku
+    * git push heroku master - to push all the commits to heroku
+
+Before it was published I needed to create a Procfile using the following command echo web: python run.py > Procfile. I needed to be carefull with the 
+spacing as it is case sensitive and wouldnt publish the app. 
+
+To ensure the application worked I needed to commit and push the Procfile also change the Config Vars in heroku to the following.
     * IP = 0.0.0.0
     * PORT = 5000
+    
+Pupblished at : https://guessing-game-app.herokuapp.com/
     
 ## Credits
 
